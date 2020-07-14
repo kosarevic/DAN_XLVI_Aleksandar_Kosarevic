@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Zadatak_1.Model
 {
-    class Manager
+    public class Manager
     {
 
         public int Id { get; set; }

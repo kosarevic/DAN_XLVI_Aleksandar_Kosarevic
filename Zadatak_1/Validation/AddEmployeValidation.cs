@@ -10,7 +10,7 @@ using Zadatak_1.Model;
 
 namespace Zadatak_1.Validation
 {
-    static class AddManagerValidation
+    static class AddEmployeValidation
     {
         //Static variables made to store usefull data after validation.
         public static string dateOfBirth = "";
@@ -18,7 +18,7 @@ namespace Zadatak_1.Validation
         public static string registrationNumber = "";
         public static string dateOfIssue = "";
 
-        public static bool Validate(Manager e)
+        public static bool Validate(Employe e)
         {
             bool cancel = false;
             while (true)
@@ -67,7 +67,7 @@ namespace Zadatak_1.Validation
                         //Validation for checking duplicate JMBG in database.
                         using (var conn = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString()))
                         {
-                            var cmd = new SqlCommand(@"select JMBG from tblManager where JMBG = @JMBG", conn);
+                            var cmd = new SqlCommand(@"select JMBG from tblEmploye where JMBG = @JMBG", conn);
                             cmd.Parameters.AddWithValue("@JMBG", e.JMBG);
                             conn.Open();
                             SqlDataReader reader1 = cmd.ExecuteReader();
@@ -183,18 +183,6 @@ namespace Zadatak_1.Validation
                     cancel = true;
                     break;
                 }
-                else if (e.Sector == null || e.Sector == "")
-                {
-                    MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Sector is incorrect, please try again.", "Notification");
-                    cancel = true;
-                    break;
-                }
-                else if (e.AccessLevel == null || e.AccessLevel == "")
-                {
-                    MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Access level is incorrect, please try again.", "Notification");
-                    cancel = true;
-                    break;
-                }
                 break;
             }
             if (!cancel)
@@ -206,6 +194,5 @@ namespace Zadatak_1.Validation
                 return false;
             }
         }
-
     }
 }

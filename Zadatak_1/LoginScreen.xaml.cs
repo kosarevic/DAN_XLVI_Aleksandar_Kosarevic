@@ -35,10 +35,7 @@ namespace Zadatak_1
                 AddManagerWindow window = new AddManagerWindow();
                 window.Show();
                 this.Close();
-            }
-            else
-            {
-                MessageBox.Show("Username or password is incorrect.");
+                return;
             }
 
             SqlConnection sqlCon = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
@@ -59,12 +56,17 @@ namespace Zadatak_1
                 {
                     m = new Manager
                     {
-                        Username = row[9].ToString(),
-                        Password = row[10].ToString()
+                        AccessLevel = row[12].ToString(),
                     };
                 }
 
-                if (m.Username != "" || m.Username!=null)
+                if (m.AccessLevel == "Modify")
+                {
+                    ModifyManagerWindow window = new ModifyManagerWindow();
+                    window.Show();
+                    this.Close();
+                }
+                else if (m.AccessLevel == "Read-Only")
                 {
 
                 }
