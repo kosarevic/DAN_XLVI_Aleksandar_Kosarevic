@@ -116,7 +116,7 @@ namespace Zadatak_1.ViewModel
                 cmd.Parameters.AddWithValue("@EmployeID", Employe.Id);
                 cmd.Parameters.AddWithValue("@FirstName", Employe.FirstName);
                 cmd.Parameters.AddWithValue("@LastName", Employe.LastName);
-                cmd.Parameters.AddWithValue("@DOB", AddEmployeValidation.dateOfBirth);
+                cmd.Parameters.AddWithValue("@DOB", EditEmployeValidation.dateOfBirth);
                 cmd.Parameters.AddWithValue("@JMBG", Employe.JMBG);
                 cmd.Parameters.AddWithValue("@Account", Employe.Account);
                 cmd.Parameters.AddWithValue("@Email", Employe.Email);

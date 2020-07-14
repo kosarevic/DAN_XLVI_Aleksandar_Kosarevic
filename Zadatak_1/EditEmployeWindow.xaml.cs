@@ -23,25 +23,30 @@ namespace Zadatak_1
     public partial class EditEmployeWindow : Window
     {
         ModifyManagerViewModel mmvm = new ModifyManagerViewModel();
+        public static string TempJmbg;
 
         public EditEmployeWindow(Employe e)
         {
             InitializeComponent();
             mmvm.Employe = e;
             DataContext = mmvm;
+            TempJmbg = e.JMBG;
         }
 
         private void Btn_Confirm(object sender, RoutedEventArgs e)
         {
-            if (AddEmployeValidation.Validate(mmvm.Employe))
+            if (EditEmployeValidation.Validate(mmvm.Employe))
             {
                 mmvm.EditEmploye();
+                ModifyManagerWindow window = new ModifyManagerWindow();
+                window.Show();
+                this.Close();
             }
         }
         //Button click navigates user to previous window.
         private void Btn_Cancel(object sender, RoutedEventArgs e)
         {
-            LoginScreen window = new LoginScreen();
+            ModifyManagerWindow window = new ModifyManagerWindow();
             window.Show();
             this.Close();
         }

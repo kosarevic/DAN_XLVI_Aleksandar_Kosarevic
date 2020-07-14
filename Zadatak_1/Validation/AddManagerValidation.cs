@@ -83,6 +83,24 @@ namespace Zadatak_1.Validation
                             reader1.Close();
                             conn.Close();
                         }
+                        using (var conn = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString()))
+                        {
+                            var cmd = new SqlCommand(@"select JMBG from tblEmploye where JMBG = @JMBG", conn);
+                            cmd.Parameters.AddWithValue("@JMBG", e.JMBG);
+                            conn.Open();
+                            SqlDataReader reader1 = cmd.ExecuteReader();
+                            while (reader1.Read())
+                            {
+                                if (reader1[0].ToString() == e.JMBG)
+                                {
+                                    MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("JMBG already exists in database, try again.", "Notification");
+                                    cancel = true;
+                                    break;
+                                }
+                            }
+                            reader1.Close();
+                            conn.Close();
+                        }
                         //if there is a duplicate, method stops further execution.
                         if (cancel) { break; }
                         //creating date of birth of user is realised below.

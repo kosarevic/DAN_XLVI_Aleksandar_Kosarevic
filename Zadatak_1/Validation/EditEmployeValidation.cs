@@ -10,7 +10,7 @@ using Zadatak_1.Model;
 
 namespace Zadatak_1.Validation
 {
-    static class AddEmployeValidation
+    class EditEmployeValidation
     {
         //Static variables made to store usefull data after validation.
         public static string dateOfBirth = "";
@@ -65,41 +65,44 @@ namespace Zadatak_1.Validation
                     if (e.JMBG.Length == 13 && e.JMBG.All(Char.IsDigit) && e.JMBG != null && e.JMBG != "")
                     {
                         //Validation for checking duplicate JMBG in database.
-                        using (var conn = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString()))
+                        if (e.JMBG != EditEmployeWindow.TempJmbg)
                         {
-                            var cmd = new SqlCommand(@"select JMBG from tblEmploye where JMBG = @JMBG", conn);
-                            cmd.Parameters.AddWithValue("@JMBG", e.JMBG);
-                            conn.Open();
-                            SqlDataReader reader1 = cmd.ExecuteReader();
-                            while (reader1.Read())
+                            using (var conn = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString()))
                             {
-                                if (reader1[0].ToString() == e.JMBG)
+                                var cmd = new SqlCommand(@"select JMBG from tblManager where JMBG = @JMBG", conn);
+                                cmd.Parameters.AddWithValue("@JMBG", e.JMBG);
+                                conn.Open();
+                                SqlDataReader reader1 = cmd.ExecuteReader();
+                                while (reader1.Read())
                                 {
-                                    MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("JMBG already exists in database, try again.", "Notification");
-                                    cancel = true;
-                                    break;
+                                    if (reader1[0].ToString() == e.JMBG)
+                                    {
+                                        MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("JMBG already exists in database, try again.", "Notification");
+                                        cancel = true;
+                                        break;
+                                    }
                                 }
+                                reader1.Close();
+                                conn.Close();
                             }
-                            reader1.Close();
-                            conn.Close();
-                        }
-                        using (var conn = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString()))
-                        {
-                            var cmd = new SqlCommand(@"select JMBG from tblManager where JMBG = @JMBG", conn);
-                            cmd.Parameters.AddWithValue("@JMBG", e.JMBG);
-                            conn.Open();
-                            SqlDataReader reader1 = cmd.ExecuteReader();
-                            while (reader1.Read())
+                            using (var conn = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString()))
                             {
-                                if (reader1[0].ToString() == e.JMBG)
+                                var cmd = new SqlCommand(@"select JMBG from tblEmploye where JMBG = @JMBG", conn);
+                                cmd.Parameters.AddWithValue("@JMBG", e.JMBG);
+                                conn.Open();
+                                SqlDataReader reader1 = cmd.ExecuteReader();
+                                while (reader1.Read())
                                 {
-                                    MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("JMBG already exists in database, try again.", "Notification");
-                                    cancel = true;
-                                    break;
+                                    if (reader1[0].ToString() == e.JMBG)
+                                    {
+                                        MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("JMBG already exists in database, try again.", "Notification");
+                                        cancel = true;
+                                        break;
+                                    }
                                 }
-                            }
-                            reader1.Close();
-                            conn.Close();
+                                reader1.Close();
+                                conn.Close();
+                            } 
                         }
                         //if there is a duplicate, method stops further execution.
                         if (cancel) { break; }

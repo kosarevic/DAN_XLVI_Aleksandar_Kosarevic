@@ -68,7 +68,9 @@ namespace Zadatak_1
                 }
                 else if (m.AccessLevel == "Read-Only")
                 {
-
+                    ReadOnlyManagerWindow window = new ReadOnlyManagerWindow();
+                    window.Show();
+                    this.Close();
                 }
                 else
                 {

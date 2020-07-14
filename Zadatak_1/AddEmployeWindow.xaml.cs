@@ -41,12 +41,15 @@ namespace Zadatak_1
             if (AddEmployeValidation.Validate(mmvm.Employe))
             {
                 mmvm.AddEmploye();
+                ModifyManagerWindow window = new ModifyManagerWindow();
+                window.Show();
+                this.Close();
             }
         }
         //Button click navigates user to previous window.
         private void Btn_Cancel(object sender, RoutedEventArgs e)
         {
-            LoginScreen window = new LoginScreen();
+            ModifyManagerWindow window = new ModifyManagerWindow();
             window.Show();
             this.Close();
         }

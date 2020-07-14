@@ -43,9 +43,10 @@ Password varchar(100),
 );
 
 insert into tblManager values ('name', 'lastname', '11-11-1111', '1111111111111', 1, 'a', 1, 'a', 'a', 'a', 'a', 'Modify');
+insert into tblManager values ('name', 'lastname', '11-11-1111', '1111111111111', 1, 'a', 1, 'a', 'b', 'b', 'a', 'Read-Only');
 
 insert into tblEmploye values ('name', 'lastname', '11-11-1111', '1111111111111', 1, 'a', 1, 'a', 'a', 'a');
 insert into tblEmploye values ('name', 'lastname', '11-11-1111', '1111111111111', 1, 'a', 1, 'a', 'a', 'a');
 insert into tblEmploye values ('name', 'lastname', '11-11-1111', '1111111111111', 1, 'a', 1, 'a', 'a', 'a');
 
-select * from tblEmploye;
+select * from tblManager;

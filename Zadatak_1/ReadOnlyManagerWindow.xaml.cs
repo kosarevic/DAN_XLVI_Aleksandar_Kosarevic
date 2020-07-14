@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Zadatak_1.ViewModel;
 
 namespace Zadatak_1
 {
@@ -19,9 +20,12 @@ namespace Zadatak_1
     /// </summary>
     public partial class ReadOnlyManagerWindow : Window
     {
+        ReadOnlyManagerViewModel romvm = new ReadOnlyManagerViewModel();
+
         public ReadOnlyManagerWindow()
         {
             InitializeComponent();
+            DataContext = romvm;
         }
 
         private void Logout(object sender, RoutedEventArgs e)

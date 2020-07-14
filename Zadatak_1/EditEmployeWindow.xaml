@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        WindowStartupLocation="CenterScreen"
         xmlns:local="clr-namespace:Zadatak_1"
         mc:Ignorable="d"
         Title="EditEmployeWindow" Height="450" Width="800">
@@ -19,12 +20,12 @@
         <TextBox HorizontalAlignment="Left" Height="23" Margin="356,99,0,0" TextWrapping="Wrap" Text="{Binding Employe.Email, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
         <TextBlock HorizontalAlignment="Left" Margin="316,150,0,0" TextWrapping="Wrap" Text="Salary" VerticalAlignment="Top"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="356,150,0,0" TextWrapping="Wrap" Text="{Binding Employe.Salary, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="517,153,0,0" TextWrapping="Wrap" Text="Position" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="568,150,0,0" TextWrapping="Wrap" Text="{Binding Employe.Position, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="506,62,0,0" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="568,57,0,0" TextWrapping="Wrap" Text="{Binding Employe.Username, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="510,109,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="568,106,0,0" TextWrapping="Wrap" Text="{Binding Employe.Password, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="533,60,0,0" TextWrapping="Wrap" Text="Position" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="584,57,0,0" TextWrapping="Wrap" Text="{Binding Employe.Position, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="522,105,0,0" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="584,100,0,0" TextWrapping="Wrap" Text="{Binding Employe.Username, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="526,152,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="584,149,0,0" TextWrapping="Wrap" Text="{Binding Employe.Password, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="Confirm" Click="Btn_Confirm" Content="Confirm" HorizontalAlignment="Left" Margin="291,323,0,0" VerticalAlignment="Top" Width="75"/>
         <Button Click="Btn_Cancel" Content="Cancel" HorizontalAlignment="Left" Margin="433,323,0,0" VerticalAlignment="Top" Width="75"/>
     </Grid>

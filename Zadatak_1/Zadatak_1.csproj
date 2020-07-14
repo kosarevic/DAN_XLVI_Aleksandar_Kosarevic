@@ -77,8 +77,10 @@
     </Compile>
     <Compile Include="Validation\AddEmployeValidation.cs" />
     <Compile Include="Validation\AddManagerValidation.cs" />
+    <Compile Include="Validation\EditEmployeValidation.cs" />
     <Compile Include="ViewModel\AddManagerViewModel.cs" />
     <Compile Include="ViewModel\ModifyManagerViewModel.cs" />
+    <Compile Include="ViewModel\ReadOnlyManagerViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LoginScreen.xaml.cs">
