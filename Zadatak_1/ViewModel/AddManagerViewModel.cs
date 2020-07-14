@@ -12,6 +12,9 @@ using Zadatak_1.Validation;
 
 namespace Zadatak_1.ViewModel
 {
+    /// <summary>
+    /// Class responsible for creating new Manager, depending on inserted values.
+    /// </summary>
     class AddManagerViewModel : INotifyPropertyChanged
     {
 
@@ -34,7 +37,7 @@ namespace Zadatak_1.ViewModel
                 }
             }
         }
-
+        //Sectors are pre-determined as list of possible choices.
         private List<string> sectors;
 
         public List<string> Sectors
@@ -42,7 +45,7 @@ namespace Zadatak_1.ViewModel
             get { return new List<string> { "HR", "Finance", "R&D" }; }
             set { sectors = value; }
         }
-
+        //Access levels are pre-determined as list of possible choices.
         private List<string> accessLevels;
 
         public List<string> AccessLevels
@@ -50,7 +53,9 @@ namespace Zadatak_1.ViewModel
             get { return new List<string> { "Modify", "Read-Only" }; }
             set { accessLevels = value; }
         }
-
+        /// <summary>
+        /// Method responsible for adding new Manager into database.
+        /// </summary>
         public void AddManager()
         {
             using (var conn = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString()))

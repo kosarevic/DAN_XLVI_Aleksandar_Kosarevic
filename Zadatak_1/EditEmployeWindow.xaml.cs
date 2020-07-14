@@ -23,6 +23,7 @@ namespace Zadatak_1
     public partial class EditEmployeWindow : Window
     {
         ModifyManagerViewModel mmvm = new ModifyManagerViewModel();
+        //Static varibale added for detecting changes to JMBG regarding later validation.
         public static string TempJmbg;
 
         public EditEmployeWindow(Employe e)
@@ -32,7 +33,7 @@ namespace Zadatak_1
             DataContext = mmvm;
             TempJmbg = e.JMBG;
         }
-
+        //Button click executes EditEmploye method.
         private void Btn_Confirm(object sender, RoutedEventArgs e)
         {
             if (EditEmployeValidation.Validate(mmvm.Employe))

@@ -10,6 +10,9 @@ using Zadatak_1.Model;
 
 namespace Zadatak_1.Validation
 {
+    /// <summary>
+    /// Class validates Employe creation window data, and returns bool value.
+    /// </summary>
     static class AddEmployeValidation
     {
         //Static variables made to store usefull data after validation.
@@ -162,14 +165,12 @@ namespace Zadatak_1.Validation
                 }
                 if (cancel) { break; }
 
-                //Validation for sector is realised below.
                 if (e.Account <= 0)
                 {
                     MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Account number is incorrect, please try again.", "Notification");
                     cancel = true;
                     break;
                 }
-                //Phone number validation.
 
                 if (e.Email.Length == 0)
                 {

@@ -14,6 +14,9 @@ using Zadatak_1.Validation;
 
 namespace Zadatak_1.ViewModel
 {
+    /// <summary>
+    /// Class responsible for generating data to Manager (Modify access level) window grid table, and also various functionalities tied to it.
+    /// </summary>
     class ModifyManagerViewModel : INotifyPropertyChanged
     {
         public ObservableCollection<Employe> Employees { get; set; }
@@ -38,7 +41,9 @@ namespace Zadatak_1.ViewModel
                 }
             }
         }
-
+        /// <summary>
+        /// Method fills the list dedicated to the coresponding window.
+        /// </summary>
         public void FillList()
         {
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString()))
@@ -72,7 +77,9 @@ namespace Zadatak_1.ViewModel
                 }
             }
         }
-
+        /// <summary>
+        /// Method responsible for removing existing employe from the grid.
+        /// </summary>
         public void DeleteEmploye()
         {
             var con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
@@ -85,7 +92,9 @@ namespace Zadatak_1.ViewModel
             con.Dispose();
             MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Delete successfull.", "Notification");
         }
-
+        /// <summary>
+        /// Method responsible for adding new employe based on inserted values.
+        /// </summary>
         public void AddEmploye()
         {
             using (var conn = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString()))
@@ -107,7 +116,9 @@ namespace Zadatak_1.ViewModel
                 MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Employe successfully created.", "Notification");
             }
         }
-
+        /// <summary>
+        /// Method executes query for editing selected employe in the database.
+        /// </summary>
         public void EditEmploye()
         {
             using (var conn = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString()))

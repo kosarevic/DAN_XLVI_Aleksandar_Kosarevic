@@ -37,9 +37,10 @@ namespace Zadatak_1
             amvm.Manager.Sector = "";
             amvm.Manager.AccessLevel = "";
         }
-
+        //Button click executes AddManager method.
         private void Btn_Confirm(object sender, RoutedEventArgs e)
         {
+            //Validation for Manager properties.
             if (AddManagerValidation.Validate(amvm.Manager))
             {
                 amvm.AddManager(); 

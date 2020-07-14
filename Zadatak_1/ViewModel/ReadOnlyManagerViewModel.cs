@@ -12,6 +12,9 @@ using Zadatak_1.Model;
 
 namespace Zadatak_1.ViewModel
 {
+    /// <summary>
+    /// Class responsible for generating data to Manager (Read-Only access level) window grid table.
+    /// </summary>
     class ReadOnlyManagerViewModel : INotifyPropertyChanged
     {
         public ObservableCollection<Employe> Employees { get; set; }
@@ -36,7 +39,9 @@ namespace Zadatak_1.ViewModel
                 }
             }
         }
-
+        /// <summary>
+        /// Method fills the list dedicated to the coresponding window.
+        /// </summary>
         public void FillList()
         {
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString()))

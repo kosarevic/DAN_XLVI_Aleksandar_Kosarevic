@@ -35,9 +35,10 @@ namespace Zadatak_1
             mmvm.Employe.Username = "";
             mmvm.Employe.Password = "";
         }
-
+        //Button click executes AddEmploye method.
         private void Btn_Confirm(object sender, RoutedEventArgs e)
         {
+            //Validation for Employe properties.
             if (AddEmployeValidation.Validate(mmvm.Employe))
             {
                 mmvm.AddEmploye();
